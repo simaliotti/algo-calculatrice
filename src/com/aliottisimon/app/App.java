@@ -57,7 +57,9 @@ public class App {
 	 * @return true or false
 	 */
 	public boolean verifyInput(String calcul) {
-		String verify = calcul.replaceAll("[+-/*]", "");
+		String verify = calcul.replaceAll("[+\\-/*]", "");	
+		verify = verify.replaceAll("[ ]", "");
+		
 		try {
 			Double.parseDouble(verify);
 			return true;
