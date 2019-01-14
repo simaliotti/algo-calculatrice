@@ -62,6 +62,7 @@ public class App {
 		
 		try {
 			Double.parseDouble(verify);
+			
 			return true;
 
 		} catch (Exception e) {
