@@ -14,11 +14,13 @@ public class Calculatrice {
 	 * @return le résultat
 	 */
 	public double calculator(String calcul) {
-		String regexSign = "[+\\-/*]"; 
+		String regexSign = "[+\\-/*]";
 		String regexNumbers = "[0-9]+(\\.[0-9])?";
 
+		
 		calcul = removeSpace(calcul);
 		calcul = calcul.replaceAll(",", ".");
+	
 
 		String[] tabNumbers = calcul.split(regexSign);
 		String[] tabSigns = calcul.split(regexNumbers);
@@ -29,25 +31,26 @@ public class Calculatrice {
 
 		System.out.println(listNumbers);
 		System.out.println(listSigns);
+		System.out.println(listNumbers.get(0));
 
 		int index = -1;
 		double result = 0;
 
 		while (listNumbers.size() > 1) {
 
-			System.out.println("Liste avant chaque opération: " + listNumbers);
+			//System.out.println("Liste avant chaque opération: " + listNumbers);
 			if ((index = listSigns.indexOf("/")) > -1) {
 				result = Double.parseDouble(listNumbers.get(index)) / Double.parseDouble(listNumbers.get(index + 1));
-				System.out.println("Resultat intermédiaire :" + result);
+				//System.out.println("Resultat intermédiaire :" + result);
 			} else if ((index = listSigns.indexOf("*")) > -1) {
 				result = Double.parseDouble(listNumbers.get(index)) * Double.parseDouble(listNumbers.get(index + 1));
-				System.out.println("Resultat intermédiaire :" + result);
+				//System.out.println("Resultat intermédiaire :" + result);
 			} else if ((index = listSigns.indexOf("+")) > -1) {
 				result = Double.parseDouble(listNumbers.get(index)) + Double.parseDouble(listNumbers.get(index + 1));
-				System.out.println("Resultat intermédiaire :" + result);
+				//System.out.println("Resultat intermédiaire :" + result);
 			} else if ((index = listSigns.indexOf("-")) > -1) {
 				result = Double.parseDouble(listNumbers.get(index)) - Double.parseDouble(listNumbers.get(index + 1));
-				System.out.println("Resultat intermédiaire :" + result);
+				//System.out.println("Resultat intermédiaire :" + result);
 			}
 
 			listNumbers.remove(index + 1);
@@ -66,7 +69,7 @@ public class Calculatrice {
 	 * @return le calcul à effectuer sans les espaces
 	 */
 	public String removeSpace(String calcul) {
-		calcul.replaceAll("\\s", "");
+		calcul = calcul.replaceAll("\\s", "");
 		return calcul;
 	}
 
