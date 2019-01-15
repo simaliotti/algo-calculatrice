@@ -15,7 +15,7 @@ public class Calculatrice {
 	 */
 	public double calculator(String calcul) {
 		String regexSign = "[+\\-/*]";
-		String regexNumbers = "[0-9]+(\\.[0-9])?";
+		String regexNumbers = "[0-9.,]+";
 
 		
 		calcul = removeSpace(calcul);
@@ -27,7 +27,7 @@ public class Calculatrice {
 
 		List<String> listNumbers = new LinkedList(Arrays.asList(tabNumbers));
 		List<String> listSigns = new LinkedList(Arrays.asList(tabSigns));
-		listSigns.remove(0);
+		String test = listSigns.remove(0);
 
 		System.out.println(listNumbers);
 		System.out.println(listSigns);
